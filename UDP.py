@@ -61,23 +61,6 @@ def load_data(city, month, day):
     # convert Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
-    # create new columns for month and day
-    df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
-
-    # filter by month
-    if month != 'All':
-        month = months.index(month) + 1
-        df = df[df['month'] == month]
-
-    # filter by day
-    if day != 'All':
-        df = df[df['day_of_week'] == day]
-
-    return df
-
-def time_stats(df):
-    
     """Displays statistics on the most frequent times of travel."""
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month']= df['Start Time'].dt.month
