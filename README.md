@@ -5,7 +5,7 @@
 udacity nanodegree
 
 ### Description
-nanodegree project 2 
+nanodegree project 2 .
 
 ### Files used
 Include the files used
