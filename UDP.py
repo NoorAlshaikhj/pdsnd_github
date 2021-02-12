@@ -11,14 +11,12 @@ days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','Al
 
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
     Returns:
         (str) city - name of the city to analyze
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city=str(input('Select a city from Chicago, New York City and Washington. \n')).lower()
         if city not in cities:
@@ -78,7 +76,6 @@ def load_data(city, month, day):
 
     return df
 
-
 def time_stats(df):
     
     """Displays statistics on the most frequent times of travel."""
@@ -109,8 +106,7 @@ def station_stats(df):
     
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
-    
-    # display most commonly used start station
+   
     print('The most common start station is: {}'.format(df['Start Station'].mode()[0]))
     
     # display most commonly used end station
@@ -122,7 +118,6 @@ def station_stats(df):
         
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
@@ -151,7 +146,6 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
     
-    # Display counts of user types
     print('The user can be broken down into \n{}'.format(df['User Type'].value_counts()))
     
     # Display counts of gender
@@ -160,7 +154,6 @@ def user_stats(df):
     else:
         print('The genders are \n{}'.format(df['Gender'].value_counts()))
     
-    # Display earliest, most recent, and most common year of birth
     if ('Birth Year' not in df):
         print('Sorry! Birth year data unavailable for Washington')
     else:
@@ -185,7 +178,6 @@ def view_data(df):
         except ValueError:
             print('Enter appropriate integer value')
             
-
 def main():
     
     while True:
@@ -197,8 +189,6 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
         view_data(df)
-
-        
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
