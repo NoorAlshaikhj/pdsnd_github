@@ -2,26 +2,6 @@ import time
 import pandas as pd
 import numpy as np
 
-CITY_DATA = { 'chicago': 'chicago.csv',
-              'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
-cities=['chicago','new york city','washington']
-months=['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December','All']
-days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday','All']
-
-def get_filters():
-    """
-    Asks user to specify a city, month, and day to analyze.
-    Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    """
-    print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    while True:
-        city=str(input('Select a city from Chicago, New York City and Washington. \n')).lower()
-        if city not in cities:
             print('Please enter a valid city name')
         else:
             break
@@ -181,20 +161,6 @@ def view_data(df):
             print(df[start:n])
             choice=input('More rows? Enter yes or no.\n')
             start=n
-
-        except ValueError:
-            print('Enter appropriate integer value')
-            
-
-def main():
-    
-    while True:
-        city, month, day = get_filters()
-        df = load_data(city, month, day)
-        
-        time_stats(df)
-        station_stats(df)
-        trip_duration_stats(df)
         user_stats(df)
         view_data(df)
 
